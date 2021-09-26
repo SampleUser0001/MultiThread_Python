@@ -8,6 +8,8 @@ from enum import Enum
 
 from sample.single_thread import SingleThread
 from sample.multi_thread_1 import MultiThread01
+from sample.thread_pool_executor import UseThreadPoolExecutor
+from sample.future import UseFuture
 
 PYTHON_APP_HOME = os.getenv('PYTHON_APP_HOME')
 logger = getLogger(__name__)
@@ -24,6 +26,10 @@ class UdonCookerFactory(Enum):
     "single_thread", SingleThread())
   MULTI_THREAD_01 = (
     "multi_thread_1", MultiThread01())
+  USE_THREAD_POOL_EXECUTOR = (
+    "thread_pool_executor", UseThreadPoolExecutor())
+  USE_FUTURE = (
+    "future", UseFuture())
 
   def __init__(self, id, instance):
     self.id = id
