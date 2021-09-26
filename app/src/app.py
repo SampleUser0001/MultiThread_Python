@@ -3,10 +3,11 @@ from logging import getLogger, config, StreamHandler, DEBUG
 import os
 
 import sys
-sys.path.append('./')
 from logutil import LogUtil
 from importenv import ImportEnvKeyEnum
 import importenv as setting
+
+from sample.factory import UdonCookerFactory
 
 PYTHON_APP_HOME = os.getenv('PYTHON_APP_HOME')
 logger = getLogger(__name__)
@@ -27,5 +28,9 @@ if __name__ == '__main__':
   # args[0]はpythonのファイル名。
   # 実際の引数はargs[1]から。
   
-  print('Hello Python on Docker!!')
-  logger.info('This is logger message!!')
+  args = sys.argv
+  instance_name = sys.argv[1]
+  
+  logger.info("Instance name : {}".format(instance_name))
+  
+  UdonCookerFactory.create(instance_name).run()

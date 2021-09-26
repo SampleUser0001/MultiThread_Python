@@ -1,26 +1,35 @@
-# Template Python on Docker
+# Multi Thread Python
 
-## 使い方
+Pythonでマルチスレッドを扱う。
 
-1. Dockerfileのimageを変更する。
-2. 必要に応じてDockerfileにpipを書く。
-3. 必要に応じてdocker-compose.ymlを修正する。
-4. 下記実行。
-    ``` sh
-    docker-compose build
-    docker-compose up
-    ```
+- [Multi Thread Python](#multi-thread-python)
+  - [実行](#実行)
+    - [準備](#準備)
+    - [シングルスレッド](#シングルスレッド)
+    - [マルチスレッド1](#マルチスレッド1)
+  - [参考](#参考)
 
-### 起動引数を渡したい場合
+## 実行
 
-1. docker-compose.ymlのpython serviceの名前を変更する。
-2. 下記実行。
-    ``` sh
-    docker-compose build
-    docker-compose run ${サービス名} ${起動引数}
-    ```
+### 準備
+
+```
+docker-compose build
+```
+
+### シングルスレッド
+
+``` sh
+docker-compose run python single_thread
+```
+
+### マルチスレッド1
+
+``` sh
+docker-compose run python multi_thread_1
+```
+
 
 ## 参考
 
-- [Qiita:Docker を使う（python のイメージで色々確認してみる）](https://qiita.com/landwarrior/items/fd918da9ebae20486b81)
-- [Future Tech Blog:仕事でPythonコンテナをデプロイする人向けのDockerfile (1): オールマイティ編](https://future-architect.github.io/articles/20200513/)
+- [\[Python\] スレッドで実装する:Qiita](https://qiita.com/tchnkmr/items/b05f321fa315bbce4f77)
